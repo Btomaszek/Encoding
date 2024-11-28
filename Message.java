@@ -1,8 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.io.FileWriter;
+import java.io.IOException;
 
 // Class to represent a message
-class Message {
+public class Message {
     private String sender;
     private String receiver;
     private String metadata;
@@ -29,6 +31,14 @@ class Message {
 
     public String getBody() {
         return body;
+    }
+    
+    public void writeToFile(String filename) throws IOException {
+        try (FileWriter writer = new FileWriter(filename, true)) {
+            writer.write("Message sent from " + sender + " to " + receiver + "\n");
+            writer.write("Metadata: " + metadata + "\n");
+            writer.write("Compressed Message: " + body + "\n\n");
+        }
     }
 }
 
