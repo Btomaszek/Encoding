@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.io.FileWriter;
 import java.io.IOException;
 
