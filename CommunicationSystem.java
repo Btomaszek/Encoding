@@ -1,8 +1,12 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.io.IOException;
+import java.util.List;
+import java.util.Random;
+
 
 // Class to handle message sending and compression
-class CommunicationSystem {
+public class CommunicationSystem {
 
     // Method to compress a message using run-length encoding
     public static String runLengthEncode(String message) {
@@ -21,7 +25,7 @@ class CommunicationSystem {
     }
 
     // Method to send a compressed message from one person to another
-    public static void sendMessage(Person sender, Person receiver, String messageBody) {
+    public static void sendMessage(Person sender, Person receiver, String messageBody) throws IOException{
         String compressedMessage = runLengthEncode(messageBody);
         String metadata = "Run-Length Encoded";
         Message message = new Message(sender.getName(), receiver.getName(), metadata, compressedMessage);
