@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class Encoding {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Create people
         List<Person> people = new ArrayList<>();
         people.add(new Person("Alice"));
@@ -26,6 +26,9 @@ public class Encoding {
         String personalMessage = scanner.nextLine();
 
         // Send a compressed message from a randomly chosen sender to receiver
-        CommunicationSystem.chooseAndSendMessage(people, personalMessage);
+        CommunicationSystem.sendMessage(people.get(0), people.get(1), personalMessage);
+
+        // Send encrypted message
+        CommunicationSystem.sendEncryptedMessage(people.get(0), people.get(1), personalMessage);
     }
 }
