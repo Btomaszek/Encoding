@@ -33,4 +33,17 @@ public class CommunicationSystem {
         System.out.println("Metadata: " + message.getMetadata());
         System.out.println("Compressed Message: " + message.getBody());
     }
+    
+    // Method to choose a sender and receiver from a list of people
+    public static void chooseAndSendMessage(List<Person> people, String messageBody) throws IOException {
+        Random random = new Random();
+        Person sender = people.get(random.nextInt(people.size()));
+        Person receiver;
+        do {
+            receiver = people.get(random.nextInt(people.size()));
+        } 
+            while (sender == receiver);
+
+        sendMessage(sender, receiver, messageBody);
+    }
 }
