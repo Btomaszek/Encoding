@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -20,15 +21,16 @@ public class Encoding {
         people.get(2).addConnection(people.get(3));
         people.get(3).addConnection(people.get(4));
 
+                      
         // Allow user to input a personal message
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your personal message: ");
         String personalMessage = scanner.nextLine();
 
         // Send a compressed message from a randomly chosen sender to receiver
-        CommunicationSystem.sendMessage(people.get(0), people.get(1), personalMessage);
+        CommunicationSystem.chooseAndSendMessage(people, personalMessage);
 
-        // Send encrypted message
-        CommunicationSystem.sendEncryptedMessage(people.get(0), people.get(1), personalMessage);
+        // Send encrypted message.
+        CommunicationSystem.sendEncryptedMessage(people.get(0), people.get(1), personalMessage);    
     }
 }
