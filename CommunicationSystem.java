@@ -10,6 +10,10 @@ import java.util.Base64;
 
 // Class to handle message sending and compression
 public class CommunicationSystem {
+    
+    private static Person lastSender;
+    private static Person lastReceiver;
+
 
     // Method to compress a message using run-length encoding
     public static String runLengthEncode(String message) {
@@ -46,8 +50,17 @@ public class CommunicationSystem {
             receiver = people.get(random.nextInt(people.size()));
         } while (sender == receiver);
 
+        // Update last sender and receiver.
+        lastSender = sender;
+        lastReceiver = receiver;
+        
         sendMessage(sender, receiver, messageBody);
         
+    }
+
+    // Helper method to get the last sender and receiver.
+    public static Person[] getLastSenderReceiver() {
+        return new Person[] {lastSender, lastReceiver};
     }
 
     // RSA Encryption

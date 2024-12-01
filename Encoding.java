@@ -30,7 +30,13 @@ public class Encoding {
         // Send a compressed message from a randomly chosen sender to receiver
         CommunicationSystem.chooseAndSendMessage(people, personalMessage);
 
+        // Capture sender and receiver used in Task 1
+        Person[] senderReceiver = CommunicationSystem.getLastSenderReceiver();
+        Person sender = senderReceiver[0];
+        Person receiver = senderReceiver[1];
+        
+        
         // Send encrypted message.
-        CommunicationSystem.sendEncryptedMessage(people.get(0), people.get(1), personalMessage);    
+        CommunicationSystem.sendEncryptedMessage(sender, receiver, personalMessage);    
     }
 }
