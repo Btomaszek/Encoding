@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class Encoding {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         // Create people
         List<Person> people = new ArrayList<>();
         people.add(new Person("Alice"));
